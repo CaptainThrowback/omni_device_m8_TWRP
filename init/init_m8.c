@@ -60,7 +60,6 @@ void vendor_load_properties()
         property_set("ro.build.description", "2.21.605.2 CL362279 release-keys");
         property_set("ro.product.device", "m8wl");
         property_set("ro.product.model", "HTC6525LVW");
-        property_set("ro.build.product", "m8wl");
         property_set("ro.ril.vzw.feature", "1");
         property_set("ro.ril.oem.ecclist", "911,*911,#911");
         property_set("ro.ril.enable.a52", "0");
@@ -85,7 +84,6 @@ void vendor_load_properties()
         property_set("ro.build.description", "1.54.651.8 CL326598 release-keys");
         property_set("ro.product.device", "m8whl");
         property_set("ro.product.model", "831C");
-        property_set("ro.build.product", "m8whl");
         property_set("telephony.sms.pseudo_multipart", "1");
         property_set("ro.ril.oem.ecclist", "911");
         property_set("ro.ril.enable.pre_r8fd=1", "1");
