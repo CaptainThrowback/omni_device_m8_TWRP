@@ -1,0 +1,4 @@
+# system.prop for m8
+#
+
+ro.build.product=m8
