@@ -3,7 +3,7 @@ on early-init
     insmod /system/lib/modules/texfat.ko
 
 on boot
-    write /sys/devices/platform/android_usb/usb_function_switch 130
+    write /sys/devices/platform/android_usb/usb_function_switch 3
 
     start choice_fn
     start chargeled
