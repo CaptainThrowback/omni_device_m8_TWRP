@@ -1,6 +1,13 @@
-on init
-    # exfat
-    insmod /system/lib/modules/texfat.ko
+import /init.recovery.qcom_decrypt.rc
+
+on fs && property:ro.build.system_root_image=true
+    # Pie (SAR) update ONLY
+    export ANDROID_ROOT /system_root
+    export LD_CONFIG_FILE /sbin/ld.config.txt
+
+on fs
+    wait /dev/block/platform/${ro.boot.bootdevice}
+    symlink /dev/block/platform/${ro.boot.bootdevice} /dev/block/bootdevice
 
 on boot
     start choice_fn
@@ -8,6 +15,7 @@ on boot
 
 on property:ro.bootmode=offmode_charging
     stop recovery
+    start offmode_charging
 
 service chargeled /sbin/chargeled
     disabled
@@ -25,8 +33,3 @@ service detect_key /sbin/detect_key
 service offmode_charging /sbin/offmode_charging
     disabled
     seclabel u:r:healthd:s0
-
-service power_test /sbin/power_test
-    disabled
-    oneshot
-    seclabel u:r:recovery:s0

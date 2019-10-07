@@ -31,8 +31,13 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 $(call inherit-product, vendor/omni/config/common.mk)
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := m8
-PRODUCT_NAME := omni_m8
+ifeq ($(TARGET_PRODUCT),omni_m8_SAR)
+   PRODUCT_DEVICE := m8_SAR
+   PRODUCT_NAME := omni_m8_SAR
+else
+   PRODUCT_DEVICE := m8
+   PRODUCT_NAME := omni_m8
+endif
 PRODUCT_BRAND := htc
-PRODUCT_MODEL := HTC One M8
+PRODUCT_MODEL := HTC One_M8
 PRODUCT_MANUFACTURER := htc
