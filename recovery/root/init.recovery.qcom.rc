@@ -3,9 +3,10 @@ import /init.recovery.qcom_decrypt.rc
 on fs && property:ro.build.system_root_image=true
     # Pie (SAR) update ONLY
     export ANDROID_ROOT /system_root
-    export LD_CONFIG_FILE /sbin/ld.config.txt
 
 on fs
+    export LD_PRELOAD /sbin/liblog_htc_sbin.so
+
     wait /dev/block/platform/${ro.boot.bootdevice}
     symlink /dev/block/platform/${ro.boot.bootdevice} /dev/block/bootdevice
 
